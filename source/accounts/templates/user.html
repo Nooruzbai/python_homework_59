@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Creat User</h1>
+    <form method="post">
+        {% include "partial/form.html" with button_text="Create User" %}
+    </form>
+
+{% endblock %}

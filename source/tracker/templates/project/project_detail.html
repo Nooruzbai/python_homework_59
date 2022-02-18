@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="card pt-2">
+  <div class="card-header fs-2">{{ project.name }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ project.description}}</h5>
+      <p class="card-text">{{ project.date_started }}</p>
+      <p class="card-text">{{ project.date_closed }}</p>
+  </div>
+</div>
+
+<table class="table table-success table-striped">
+<thead>
+    <tr>
+          <th scope="col">Project Users' name</th>
+    </tr>
+</thead>
+<tbody>
+{% for user in project.user.all %}
+   <tr>
+      <td>{{user}}</td>
+    </tr>
+</tbody>
+
+        {% endfor %}
+
+ </table>
+     <a href="{% url 'project_user_update_view' project.pk %}">Project User Update</a>
+
+
+
+    <h3>Tasks</h3>
+
+
+<div class="p-3">
+    <a class="btn btn-primary btn-lg" href="{% url "project_task_create_view" project.pk %}">Create new Task</a>
+</div>
+ <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Summary</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th scope="col">Type</th>
+        <th scope="col">Date created</th>
+        <th scope="col">Date updated</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for task in tasks %}
+    <tr>
+        <td>{{ task.summary }}</td>
+        <td>{{ task.description}}</td>
+        <td>{{ task.status }}</td>
+        <td>
+            {% for type in task.type.all %}
+            {{ type }}
+            {% endfor %}
+        </td>
+        <td>{{ task.date_created }}</td>
+        <td>{{ task.date_updated}}</td>
+    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_view" task.pk %}"><i class="fas fa-info"></i></a></td>
+    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_delete_view" task.pk %}"><i class="fas fa-trash-alt"></i></a></td>
+    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_edit_view" task.pk %}"><i class="far fa-edit"></i></a></td>
+    </tr>
+ {% endfor %}
+  </table>
+
+{% endblock %}

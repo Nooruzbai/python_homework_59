@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <form action="" method="POST">
+        {% include "partial/form.html" with button_text="Submit" %}
+    </form>
+
+{#    <div class="pt-1">#}
+{#        <a class="btn btn-primary btn-sm" href="{% url "index_view" %}">Back to main</a>#}
+{#    </div>#}
+
+</div>
+
+{% endblock %}

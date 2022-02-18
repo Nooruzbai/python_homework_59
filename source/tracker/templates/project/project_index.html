@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="row pt-2">
+
+<div type="button" class="p-2"><a href="{% url "task_list_view" %}" class="btn btn-primary">To all Tasks</a></div>
+{%  if not user.is_authenticated %}
+
+    <div type="button" class="p-2"><a href="" class="btn btn-primary">Please login if you want to create a project!</a></div>
+{% else %}
+    {% if perms.tracker.add_project %}
+    <div type="button" class="p-2"><a href="{% url "project_create_view" %}" class="btn btn-primary">Create Project</a></div>
+        {% endif %}
+{% endif %}
+
+
+
+{% for project in projects %}
+  <div class="col-sm-6 p-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.name }}</h5>
+        <p class="card-text">{{ project.description }}</p>
+        <a href="{% url "project_detail_view" project.pk %}" class="btn btn-primary">Go to Details</a>
+
+          {%  if not user.is_authenticated %}
+          <a href="" class="btn btn-primary">Edit is not available!</a>
+          {% else %}
+          <a href="{% url "project_update_view" project.pk %}" class="btn btn-primary">Edit Project</a>
+          {% endif %}
+            {%  if not user.is_authenticated %}
+                <a href="" class="btn btn-primary">Delete is not available!</a>
+            {% else %}
+                <a href="{% url "project_delete_view" project.pk %}" class="btn btn-primary">Delete Project</a>
+            {% endif %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}

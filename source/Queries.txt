@@ -1,0 +1,28 @@
+Query 1
+
+from tracker.models import Task, Type, Status
+from django.utils import timezone
+from datetime import timedelta  
+
+Task.objects.filter(status__name="Done", date_updated__gt=timezone.now()-timedelta(days=30))
+
+Query 2
+
+from tracker.models import Task, Type, Status
+from django.db.models import Q
+q1 = Q(status__name="Done")                      
+q2 = Q(status__name="New")
+q4 = Q(type__name = "Task")
+q3 = Q(type__name = "Bug")
+
+Task.objects.filter(q1 | q2, q3 | q4)
+
+
+
+Query 3
+
+from tracker.models import Task, Type, Status
+from django.db.models import Q
+
+Task.objects.filter(Q(summary__icontains="Bug") | Q(type__name="Bug"), ~Q(status__name="Done"))
+
