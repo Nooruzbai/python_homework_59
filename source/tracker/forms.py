@@ -78,7 +78,7 @@ class ProjectUserUpdateForm(forms.ModelForm):
         model = Project
         fields = ['user']
         error_messages = {}
-        widgets={
+        widgets = {
             'user': forms.CheckboxSelectMultiple
         }
 

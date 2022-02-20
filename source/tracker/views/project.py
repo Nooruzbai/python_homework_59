@@ -37,7 +37,7 @@ class ProjectCreateView(PermissionRequiredMixin, CreateView):
     def has_permission(self):
         print(self.request.user.id)
         if self.request.user in Group.objects.filter(name='Project Manager'):
-             return super().has_permission()
+            return super().has_permission()
 
     def form_valid(self, form):
         project = form.save()
@@ -60,17 +60,15 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     #     project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
     #     return super().has_permission() and self.request.user in project.user.all()
 
-    def has_permission(self):
-        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        return super().has_permission() and project in self.request.user.projects.all()
+    # def has_permission(self):
+    #     project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+    #     return super().has_permission() and project in self.request.user.projects.all()
 
     # def has_permission(self):
     #     group = Group.objects.get(name="Project Manager")
     #     project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
     #     if group in self.request.user.groups.all() and self.request.user in project.user.all():
     #         return super().has_permission()
-
-
 
     def get_success_url(self):
         return reverse('project_detail_view', kwargs={'pk': self.object.pk})
