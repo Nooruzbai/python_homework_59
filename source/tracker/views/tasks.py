@@ -1,3 +1,5 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.models import Group
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import View, TemplateView, ListView, CreateView, UpdateView, DeleteView
@@ -53,10 +55,23 @@ class TaskView(TemplateView):
         return super().get_context_data(**kwargs)
 
 
-class ProjectTaskCreateView(CreateView):
+class ProjectTaskCreateView(PermissionRequiredMixin, CreateView):
     model = Task
     template_name = 'project/project_task_create.html'
     form_class = ProjectTaskForm
+    permission_required = "tracker.add_task"
+
+    def has_permission(self):
+        group = Group.objects.get(name="Project Manager")
+        group1 = Group.objects.get(name="Team Lead")
+        group2 = Group.objects.get(name="Developer")
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        if group in self.request.user.groups.all() and self.request.user in project.user.all():
+            return super().has_permission()
+        if group1 in self.request.user.groups.all() and self.request.user in project.user.all():
+            return super().has_permission()
+        if group2 in self.request.user.groups.all() and self.request.user in project.user.all():
+            return super().has_permission()
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
@@ -99,9 +114,22 @@ class TaskCreate(CreateView):
         # return render(request, 'task/task_create.html', {'form': form})
 
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(PermissionRequiredMixin, DeleteView):
     model = Task
     template_name = 'task/task_delete.html'
+    permission_required = "tracker.delete_task"
+
+    def has_permission(self):
+        group = Group.objects.get(name="Project Manager")
+        group1 = Group.objects.get(name="Team Lead")
+        group2 = Group.objects.get(name="Developer")
+        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
+        if group in self.request.user.groups.all() and self.request.user in task.project.user.all():
+            return super().has_permission()
+        if group1 in self.request.user.groups.all() and self.request.user in task.project.user.all():
+            return super().has_permission()
+        if group2 in self.request.user.groups.all() and self.request.user in task.project.user.all():
+            return super().has_permission()
 
     def get_success_url(self):
         return reverse('project_detail_view', kwargs={'pk': self.object.project.pk})
@@ -117,11 +145,24 @@ class TaskDeleteView(DeleteView):
     #     return redirect('project_list_view')
 
 
-class TaskEditView(UpdateView):
+class TaskEditView(PermissionRequiredMixin, UpdateView):
     model = Task
     template_name = 'task/task_edit.html'
     form_class = ProjectTaskForm
     context_object_name = 'task'
+    permission_required = 'tracker.change_task'
+
+    def has_permission(self):
+        group = Group.objects.get(name="Project Manager")
+        group1 = Group.objects.get(name="Team Lead")
+        group2 = Group.objects.get(name="Developer")
+        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
+        if group in self.request.user.groups.all() and self.request.user in task.project.user.all():
+            return super().has_permission()
+        if group1 in self.request.user.groups.all() and self.request.user in task.project.user.all():
+            return super().has_permission()
+        if group2 in self.request.user.groups.all() and self.request.user in task.project.user.all():
+            return super().has_permission()
 
     def get_success_url(self):
         return reverse('project_detail_view', kwargs={"pk": self.object.project.pk})

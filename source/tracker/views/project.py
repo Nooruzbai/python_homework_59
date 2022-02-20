@@ -32,11 +32,11 @@ class ProjectDetailView(DetailView):
 class ProjectCreateView(PermissionRequiredMixin, CreateView):
     form_class = ProjectForm
     template_name = 'project/project_create.html'
-    permission_required = 'add_project'
+    permission_required = 'tracker.add_project'
 
     def has_permission(self):
-        print(self.request.user.id)
-        if self.request.user in Group.objects.filter(name='Project Manager'):
+        group = Group.objects.get(name='Project Manager')
+        if group in self.request.user.groups.all() or self.request.user.is_superuser == 1:
             return super().has_permission()
 
     def form_valid(self, form):
@@ -64,28 +64,44 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     #     project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
     #     return super().has_permission() and project in self.request.user.projects.all()
 
-    # def has_permission(self):
-    #     group = Group.objects.get(name="Project Manager")
-    #     project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-    #     if group in self.request.user.groups.all() and self.request.user in project.user.all():
-    #         return super().has_permission()
+    def has_permission(self):
+        group = Group.objects.get(name="Project Manager")
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        if group in self.request.user.groups.all() and self.request.user in project.user.all():
+            return super().has_permission()
 
     def get_success_url(self):
         return reverse('project_detail_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectDeleteView(LoginRequiredMixin, DeleteView):
+class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'project/project_delete.html'
     model = Project
     context_object_name = 'project'
+    permission_required = "tracker.delete_project"
     success_url = reverse_lazy('project_list_view')
 
+    def has_permission(self):
+        group = Group.objects.get(name='Project Manager')
+        if group in self.request.user.groups.all() or self.request.user.is_superuser == 1:
+            return super().has_permission()
 
-class ProjectUserUpdate(UpdateView):
+
+class ProjectUserUpdate(PermissionRequiredMixin, UpdateView):
     model = Project
     template_name = 'partial/user_form.html'
     form_class = ProjectUserUpdateForm
     context_object_name = 'user'
+    permission_required = 'tracker.can_add_user'
+
+    def has_permission(self):
+        group = Group.objects.get(name="Project Manager")
+        group1 = Group.objects.get(name="Team Lead")
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        if group in self.request.user.groups.all() and self.request.user in project.user.all():
+            return super().has_permission()
+        if group1 in self.request.user.groups.all() and self.request.user in project.user.all():
+            return super().has_permission()
 
     def get_success_url(self):
         return reverse('project_detail_view', kwargs={'pk': self.object.pk})
