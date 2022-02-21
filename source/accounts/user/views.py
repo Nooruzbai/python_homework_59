@@ -18,4 +18,3 @@ class UserListView(PermissionRequiredMixin, ListView):
     template_name = "user_list_view.html"
     context_object_name = "user_object"
     permission_required = 'accounts.can_see_user_list'
-

@@ -67,7 +67,7 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     def has_permission(self):
         group = Group.objects.get(name="Project Manager")
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        if group in self.request.user.groups.all() and self.request.user in project.user.all():
+        if group in self.request.user.groups.all():
             return super().has_permission()
 
     def get_success_url(self):
@@ -99,7 +99,7 @@ class ProjectUserUpdate(PermissionRequiredMixin, UpdateView):
         group1 = Group.objects.get(name="Team Lead")
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
         if group in self.request.user.groups.all() and self.request.user in project.user.all():
-            return super().has_permission()
+            return True
         if group1 in self.request.user.groups.all() and self.request.user in project.user.all():
             return super().has_permission()
 

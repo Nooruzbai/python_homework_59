@@ -1,0 +1,677 @@
+[
+{
+  "model": "tracker.status",
+  "pk": 1,
+  "fields": {
+    "name": "New"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 2,
+  "fields": {
+    "name": "In Progress"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 3,
+  "fields": {
+    "name": "Done"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 1,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 1,
+  "fields": {
+    "summary": "Create a new project 1",
+    "description": "Create a new project with love-1",
+    "status": 1,
+    "date_created": "2022-01-12T17:04:21.054Z",
+    "date_updated": "2022-01-17T11:59:28.849Z",
+    "project": 1,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 2,
+  "fields": {
+    "summary": "Create a new project 2",
+    "description": "Create a new project with love 2",
+    "status": 1,
+    "date_created": "2022-01-12T17:04:51.931Z",
+    "date_updated": "2022-01-17T10:23:58.667Z",
+    "project": 1,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 3,
+  "fields": {
+    "summary": "Create a new project 3",
+    "description": "Create a new project with love 3",
+    "status": 1,
+    "date_created": "2022-01-12T17:05:22.104Z",
+    "date_updated": "2022-01-17T10:25:08.824Z",
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 4,
+  "fields": {
+    "summary": "Marvel project-1",
+    "description": "",
+    "status": 2,
+    "date_created": "2022-01-12T17:06:07.498Z",
+    "date_updated": "2022-01-17T10:25:13.349Z",
+    "project": 1,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 5,
+  "fields": {
+    "summary": "Marvel project-2",
+    "description": "Thanos 2",
+    "status": 2,
+    "date_created": "2022-01-12T17:06:20.055Z",
+    "date_updated": "2022-01-17T10:25:17.394Z",
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 6,
+  "fields": {
+    "summary": "Marvel project-3",
+    "description": "Thanos 3",
+    "status": 2,
+    "date_created": "2022-01-12T17:06:44.252Z",
+    "date_updated": "2022-01-17T10:25:26.392Z",
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 7,
+  "fields": {
+    "summary": "DC Bug-1",
+    "description": "DC Bug-1 lost millions because of this",
+    "status": 3,
+    "date_created": "2022-01-12T17:07:21.218Z",
+    "date_updated": "2022-01-12T17:07:21.218Z",
+    "project": 1,
+    "type": []
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 8,
+  "fields": {
+    "summary": "DC Bug-2",
+    "description": "DC Bug-2 please fix it",
+    "status": 3,
+    "date_created": "2022-01-12T17:07:47.580Z",
+    "date_updated": "2022-01-17T10:25:35.932Z",
+    "project": 1,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 9,
+  "fields": {
+    "summary": "DC Bug-3",
+    "description": "DC Bug-3 changed the behaviour of the app",
+    "status": 3,
+    "date_created": "2022-01-12T17:08:12.095Z",
+    "date_updated": "2022-01-17T10:25:51.876Z",
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 10,
+  "fields": {
+    "summary": "Iron man",
+    "description": "revive Iron Man",
+    "status": 2,
+    "date_created": "2022-01-13T10:45:30.412Z",
+    "date_updated": "2022-01-17T10:25:58.685Z",
+    "project": 1,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 12,
+  "fields": {
+    "summary": "Iron man",
+    "description": "Revive Iron Man",
+    "status": 1,
+    "date_created": "2022-01-13T10:52:25.238Z",
+    "date_updated": "2022-01-17T10:26:03.918Z",
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 13,
+  "fields": {
+    "summary": "Hulk",
+    "description": "Kill him",
+    "status": 2,
+    "date_created": "2022-01-13T10:53:48.453Z",
+    "date_updated": "2022-01-17T10:26:10.162Z",
+    "project": 1,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 14,
+  "fields": {
+    "summary": "Change server",
+    "description": "Server Error 500",
+    "status": 1,
+    "date_created": "2022-01-17T10:34:26.225Z",
+    "date_updated": "2022-01-17T10:34:26.225Z",
+    "project": 1,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 15,
+  "fields": {
+    "summary": "James Bond",
+    "description": "Famous English Agent",
+    "status": 1,
+    "date_created": "2022-01-30T05:03:28.445Z",
+    "date_updated": "2022-01-30T05:03:28.445Z",
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 21,
+  "fields": {
+    "summary": "efgerg",
+    "description": "gsergesrger",
+    "status": 2,
+    "date_created": "2022-01-31T07:17:18.305Z",
+    "date_updated": "2022-01-31T08:26:56.609Z",
+    "project": 1,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 22,
+  "fields": {
+    "summary": "ergwerg",
+    "description": "wgergwergwer",
+    "status": 1,
+    "date_created": "2022-01-31T07:17:57.596Z",
+    "date_updated": "2022-01-31T07:17:57.597Z",
+    "project": 4,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 23,
+  "fields": {
+    "summary": "fgsdfg",
+    "description": "sdfgsdfg",
+    "status": 1,
+    "date_created": "2022-01-31T08:27:10.351Z",
+    "date_updated": "2022-01-31T08:27:10.351Z",
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 24,
+  "fields": {
+    "summary": "Iron man",
+    "description": "gfbdfgbdgfbdf",
+    "status": 1,
+    "date_created": "2022-01-31T10:16:46.898Z",
+    "date_updated": "2022-01-31T10:16:46.898Z",
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 25,
+  "fields": {
+    "summary": "sdafasdfas",
+    "description": "asfdfasdfasd",
+    "status": 1,
+    "date_created": "2022-01-31T10:38:47.256Z",
+    "date_updated": "2022-01-31T10:38:47.256Z",
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 26,
+  "fields": {
+    "summary": "qweqwe",
+    "description": "",
+    "status": 1,
+    "date_created": "2022-01-31T10:51:28.156Z",
+    "date_updated": "2022-01-31T10:51:28.156Z",
+    "project": 2,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 27,
+  "fields": {
+    "summary": "Jake",
+    "description": "hfjdshdjsdf",
+    "status": 2,
+    "date_created": "2022-01-31T10:52:00.442Z",
+    "date_updated": "2022-01-31T10:52:00.442Z",
+    "project": 2,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 28,
+  "fields": {
+    "summary": "Lllllllllllllllllllllllllllllllllllll",
+    "description": "jdasfhkjsdhfkjd",
+    "status": 2,
+    "date_created": "2022-01-31T10:52:40.938Z",
+    "date_updated": "2022-01-31T10:52:40.941Z",
+    "project": 2,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 29,
+  "fields": {
+    "summary": "Attr",
+    "description": "ertrter",
+    "status": 1,
+    "date_created": "2022-01-31T10:55:59.178Z",
+    "date_updated": "2022-01-31T10:55:59.178Z",
+    "project": 2,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 30,
+  "fields": {
+    "summary": "Igor",
+    "description": "weasfasfasdf",
+    "status": 1,
+    "date_created": "2022-01-31T10:58:51.360Z",
+    "date_updated": "2022-01-31T10:58:51.360Z",
+    "project": 2,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 31,
+  "fields": {
+    "summary": "Igor",
+    "description": "weasfasfasdf",
+    "status": 1,
+    "date_created": "2022-01-31T11:01:42.864Z",
+    "date_updated": "2022-01-31T11:01:42.864Z",
+    "project": 2,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 32,
+  "fields": {
+    "summary": "Igor",
+    "description": "weasfasfasdf",
+    "status": 1,
+    "date_created": "2022-01-31T11:01:57.880Z",
+    "date_updated": "2022-01-31T11:01:57.880Z",
+    "project": 2,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 33,
+  "fields": {
+    "summary": "Igor",
+    "description": "weasfasfasdf",
+    "status": 1,
+    "date_created": "2022-01-31T11:02:19.981Z",
+    "date_updated": "2022-01-31T11:02:19.981Z",
+    "project": 2,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 34,
+  "fields": {
+    "summary": "Champion@",
+    "description": "dgsdfgsdfg",
+    "status": 3,
+    "date_created": "2022-01-31T11:05:34.802Z",
+    "date_updated": "2022-01-31T11:05:34.802Z",
+    "project": 6,
+    "type": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 35,
+  "fields": {
+    "summary": "Champ",
+    "description": "sfdgsdfgsd",
+    "status": 1,
+    "date_created": "2022-01-31T11:05:50.070Z",
+    "date_updated": "2022-01-31T11:05:50.070Z",
+    "project": 2,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 36,
+  "fields": {
+    "summary": "Champ4",
+    "description": "fdgdsfgsdfg",
+    "status": 2,
+    "date_created": "2022-01-31T11:06:15.841Z",
+    "date_updated": "2022-01-31T11:06:15.841Z",
+    "project": 2,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 37,
+  "fields": {
+    "summary": "Pokemon",
+    "description": "",
+    "status": 2,
+    "date_created": "2022-01-31T11:23:07.616Z",
+    "date_updated": "2022-01-31T11:26:10.752Z",
+    "project": 1,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 38,
+  "fields": {
+    "summary": "Pokemon@",
+    "description": "dfdsagfads",
+    "status": 2,
+    "date_created": "2022-01-31T11:25:33.809Z",
+    "date_updated": "2022-01-31T11:36:44.534Z",
+    "project": 1,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 39,
+  "fields": {
+    "summary": "Pokemon2",
+    "description": "poke",
+    "status": 1,
+    "date_created": "2022-01-31T11:26:55.085Z",
+    "date_updated": "2022-01-31T11:27:02.340Z",
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 1,
+  "fields": {
+    "name": "Project 1",
+    "description": "To be successful in everything",
+    "date_started": "2022-01-29T15:06:13Z",
+    "date_closed": null,
+    "user": [
+      2,
+      8
+    ]
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 2,
+  "fields": {
+    "name": "Bilimkana",
+    "description": "dasfdsafasdfasd",
+    "date_started": null,
+    "date_closed": null,
+    "user": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 3,
+  "fields": {
+    "name": "fsgdfgsdf",
+    "description": "sdfgsdfgsdf",
+    "date_started": null,
+    "date_closed": null,
+    "user": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 4,
+  "fields": {
+    "name": "gwergwer",
+    "description": "gwergwergwer",
+    "date_started": null,
+    "date_closed": null,
+    "user": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 5,
+  "fields": {
+    "name": "sffgsdfgd",
+    "description": "dfgdfgf",
+    "date_started": null,
+    "date_closed": null,
+    "user": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 6,
+  "fields": {
+    "name": "dsgfsdgf",
+    "description": "sdfgsdfg",
+    "date_started": null,
+    "date_closed": null,
+    "user": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 8,
+  "fields": {
+    "name": "Champion",
+    "description": "Champion",
+    "date_started": "2022-02-18T00:00:00Z",
+    "date_closed": "2022-02-22T00:00:00Z",
+    "user": [
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 9,
+  "fields": {
+    "name": "PPPPPPPPPP",
+    "description": "PPPPPPPPPP",
+    "date_started": null,
+    "date_closed": null,
+    "user": [
+      2
+    ]
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 10,
+  "fields": {
+    "name": "qwe",
+    "description": "qweq",
+    "date_started": "2022-02-02T00:00:00Z",
+    "date_closed": null,
+    "user": [
+      2
+    ]
+  }
+}
+]
