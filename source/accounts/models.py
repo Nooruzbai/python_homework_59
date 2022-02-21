@@ -11,6 +11,9 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'Profile'
         verbose_name_plural = 'Profiles'
+        permissions = [
+            ('can_see_user_list', 'Can see user list')
+        ]
 
     def __str__(self):
         return f"Profile: {self.user.username}. {self.id}"

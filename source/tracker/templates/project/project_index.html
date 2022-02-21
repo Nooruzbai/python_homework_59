@@ -16,12 +16,18 @@
                 <div type="button" class="p-2"><a href="{% url "project_create_view" %}" class="btn btn-primary">Create
                     Project</a></div>
             {% endif %}
+
+
+             {% if perms.accounts.can_see_user_list %}
+                <div type="button" class="p-2"><a href="{% url "accounts:user_list_view" %}" class="btn btn-primary">User List</a></div>
+            {% endif %}
+
         {% endif %}
 
 
 
         {% for project in projects %}
-        {% include "partial/user_project_list.html" %}
+            {% include "partial/user_project_list.html" %}
         {% endfor %}
     </div>
 
