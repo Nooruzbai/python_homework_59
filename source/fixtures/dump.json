@@ -576,7 +576,9 @@
     "date_closed": null,
     "user": [
       2,
-      8
+      8,
+      9,
+      10
     ]
   }
 },
@@ -588,7 +590,10 @@
     "description": "dasfdsafasdfasd",
     "date_started": null,
     "date_closed": null,
-    "user": []
+    "user": [
+      8,
+      10
+    ]
   }
 },
 {

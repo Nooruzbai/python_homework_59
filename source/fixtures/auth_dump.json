@@ -119,7 +119,7 @@
         "task"
       ],
       [
-        "delete_task",
+        "change_task",
         "tracker",
         "task"
       ]
@@ -131,7 +131,7 @@
   "pk": 2,
   "fields": {
     "password": "pbkdf2_sha256$320000$mkHdEafJdf5ASUEkbcD0a4$CVarVmpI8fDnW1mgOwXmvEJ6SjvTNZ6omAyM3ZIwBcE=",
-    "last_login": "2022-02-21T12:01:34.504Z",
+    "last_login": "2022-02-22T10:40:10.686Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -185,7 +185,7 @@
   "pk": 8,
   "fields": {
     "password": "pbkdf2_sha256$320000$7fTuPaCL5EXPZUHyKerEdd$g0UfQ25iLw2wfRN3oMQub2B8DMGZW7fPDJgK//3mrCc=",
-    "last_login": "2022-02-21T12:04:17.858Z",
+    "last_login": "2022-02-22T11:05:26.986Z",
     "is_superuser": false,
     "username": "manager",
     "first_name": "",
@@ -213,7 +213,7 @@
   "pk": 9,
   "fields": {
     "password": "pbkdf2_sha256$320000$wke4ExBFd3AjxwkpSjllFa$76abDkrzHxdf9bcMZBn2ze/qIZUOekPylQs+WRQx2QE=",
-    "last_login": null,
+    "last_login": "2022-02-22T10:55:34.501Z",
     "is_superuser": false,
     "username": "developer",
     "first_name": "",
@@ -235,7 +235,7 @@
   "pk": 10,
   "fields": {
     "password": "pbkdf2_sha256$320000$Tf45dpC4xWsxc39AX8r30c$MzUAjwYKjnY2JRHpt/w4qqPa81G0xAYynnktCdFu9U0=",
-    "last_login": null,
+    "last_login": "2022-02-22T11:06:31.779Z",
     "is_superuser": false,
     "username": "teamlead",
     "first_name": "",
