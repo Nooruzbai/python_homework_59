@@ -18,8 +18,9 @@
             {% endif %}
 
 
-             {% if perms.accounts.can_see_user_list %}
-                <div type="button" class="p-2"><a href="{% url "accounts:user_list_view" %}" class="btn btn-primary">User List</a></div>
+            {% if perms.accounts.can_see_user_list %}
+                <div type="button" class="p-2"><a href="{% url "accounts:user_list_view" %}" class="btn btn-primary">User
+                    List</a></div>
             {% endif %}
 
         {% endif %}

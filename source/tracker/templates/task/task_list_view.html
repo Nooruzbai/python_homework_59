@@ -1,54 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
- {% if not user.is_authenticated %}
-     {% else %}
-     {% if not perms.tracker.add_task %}
+    {% if not user.is_authenticated %}
+    {% else %}
+        {% if not perms.tracker.add_task %}
 
-         {% else %}
+        {% else %}
             <div class="p-3">
                 <a class="btn btn-primary btn-lg" href="{% url "task_create_view" %}">Create new task</a>
             </div>
-     {% endif %}
+        {% endif %}
 
- {% endif %}
-
-
+    {% endif %}
 
 
-<div type="button" class="p-3">
-    <a href="{% url "project_list_view" %}" class="btn btn-primary">To all Projects</a>
-</div>
-<div class="search">
-    {% include 'partial/simple_search.html' %}
-</div>
 
-<table class="table">
-  <thead>
-    <tr>
-        <th scope="col">id</th>
-        <th scope="col">Summary</th>
-        <th scope="col">Description</th>
-        <th scope="col">Status</th>
-        <th scope="col">Date created</th>
-        <th scope="col">Date updated</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for task in tasks %}
-    <tr>
-        <th scope="row">{{ task.pk }}</th>
-        <td>{{ task.summary }}</td>
-        <td>{{ task.description}}</td>
-        <td>{{ task.status }}</td>
-        <td>{{ task.date_created }}</td>
-        <td>{{ task.date_updated}}</td>
-    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_view" task.pk %}"><i class="fas fa-info"></i></a></td>
-    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_delete_view" task.pk %}"><i class="fas fa-trash-alt"></i></a></td>
-    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_edit_view" task.pk %}"><i class="far fa-edit"></i></a></td>
-    </tr>
-    {% endfor %}
-  </table>
+
+    <div type="button" class="p-3">
+        <a href="{% url "project_list_view" %}" class="btn btn-primary">To all Projects</a>
+    </div>
+    <div class="search">
+        {% include 'partial/simple_search.html' %}
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Summary</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Date created</th>
+            <th scope="col">Date updated</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <th scope="row">{{ task.pk }}</th>
+                <td>{{ task.summary }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.date_created }}</td>
+                <td>{{ task.date_updated }}</td>
+                <td><a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_view" task.pk %}"><i
+                        class="fas fa-info"></i></a></td>
+                <td><a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_delete_view" task.pk %}"><i
+                        class="fas fa-trash-alt"></i></a></td>
+                <td><a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_edit_view" task.pk %}"><i
+                        class="far fa-edit"></i></a></td>
+            </tr>
+        {% endfor %}
+    </table>
 
     <div class="pagination">
     <span class="step-links">
@@ -66,6 +69,6 @@
             <a href="?page={{ page_obj.paginator.num_pages }}{% if search %}&search={{ search }}{% endif %}">last &raquo;</a>
         {% endif %}
     </span>
-</div>
+    </div>
 
 {% endblock %}

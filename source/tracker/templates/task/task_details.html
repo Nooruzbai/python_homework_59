@@ -1,39 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-{#<div class="p-3">#}
-{#    <a class="btn btn-primary btn-lg" href="{% url "create_view" %}">Create new</a>#}
-{#</div>#}
+    {#<div class="p-3">#}
+    {#    <a class="btn btn-primary btn-lg" href="{% url "create_view" %}">Create new</a>#}
+    {#</div>#}
 
-<table class="table">
-  <thead>
-    <tr>
-        <th scope="col">id</th>
-        <th scope="col">Summary</th>
-        <th scope="col">Description</th>
-        <th scope="col">Status</th>
-        <th scope="col">Type</th>
-        <th scope="col">Date created</th>
-        <th scope="col">Date updated</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <th scope="row">{{ task.pk }}</th>
-        <td>{{ task.summary }}</td>
-        <td>{{ task.description}}</td>
-        <td>{{ task.status }}</td>
-        <td>
-            {% for type in task.type.all %}
-            {{ type }}
-            {% endfor %}
-        </td>
-        <td>{{ task.date_created }}</td>
-        <td>{{ task.date_updated}}</td>
-{#    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_view" product.pk %}"><i class="fas fa-info"></i></a></td>#}
-{#    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "delete_view" product.pk %}"><i class="fas fa-trash-alt"></i></a></td>#}
-{#    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "edit_view" product.pk %}"><i class="far fa-edit"></i></a></td>#}
-    </tr>
-  </table>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Summary</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Type</th>
+            <th scope="col">Date created</th>
+            <th scope="col">Date updated</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{{ task.pk }}</th>
+            <td>{{ task.summary }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.status }}</td>
+            <td>
+                {% for type in task.type.all %}
+                    {{ type }}
+                {% endfor %}
+            </td>
+            <td>{{ task.date_created }}</td>
+            <td>{{ task.date_updated }}</td>
+            {#    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "task_view" product.pk %}"><i class="fas fa-info"></i></a></td>#}
+            {#    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "delete_view" product.pk %}"><i class="fas fa-trash-alt"></i></a></td>#}
+            {#    <td> <a class="btn btn-primary btn-sm ps-3 pe-3" href="{% url "edit_view" product.pk %}"><i class="far fa-edit"></i></a></td>#}
+        </tr>
+    </table>
 
 {% endblock %}

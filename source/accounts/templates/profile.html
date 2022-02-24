@@ -1,20 +1,31 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
+    <div class="change_password_and_profile_bittons pt-2">
+        {% if user_object == user %}
+            <div>
+                <a class="btn btn-primary" href="{% url 'accounts:update_user_profile' %}">Update Profile</a>
+
+                <a class="btn btn-primary" href="{% url 'accounts:change_password' %}">Change password</a>
+            </div>
+        {% endif %}
+
+    </div>
     {{ user_obeject.projects.all }}
 
     <h1>User Profile {{ user_object.username }}</h1>
     <p><strong>Git link: </strong><a>{{ user_object.profile.git_link }}</a></p>
     <p><strong>About Me:</strong> {{ user_object.profile.about_me }}</p>
-    {%  if user_object.profile.avatar %}
-        <div><img src="{{ user_object.profile.avatar.url}}" alt="user avatar"></div>
+    {% if user_object.profile.avatar %}
+        <div><img src="{{ user_object.profile.avatar.url }}" alt="user avatar"></div>
 
     {% endif %}
 
 
-{% for project in user_object.projects.all %}
-    <div>
-    {% include "partial/user_project_list.html" %}
+    {% for project in user_object.projects.all %}
+        <div>
+        {% include "partial/user_project_list.html" %}
     {% endfor %}
 
 
